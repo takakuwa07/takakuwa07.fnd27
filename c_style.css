@@ -1,0 +1,424 @@
+/* ======================================================================= */
+/* ★★★ 共通 ★★★ */
+.picSize {
+  width: 100px;
+}
+
+.homeMove {
+  /* margin-left: 30px; */
+  /* margin-bottom: 30px; */
+  font-size: 10px;
+  cursor: pointer;
+  /* text-align: center; */
+  /* margin: 0 auto; */
+}
+
+/* ======================================================================= */
+.indexBody {
+  background-color: aliceblue;
+  font-family: "游ゴシック";
+}
+
+.indexHeader {
+
+  
+  
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  /* text-align: center; */
+
+  /* margin: 0 auto; */
+
+  /* width: 1000px; */
+  /* margin-bottom: 30px; */
+}
+
+/* .indexTitle {
+  text-align: center;
+  padding: left 100px;
+  margin: 0 auto;
+  text-align: center;
+} */
+
+.indexUpdate{
+  /* text-align: right; */
+  padding-left: 850px;
+  /* position: relative;
+  right: 300px; */
+  /* top: 100; */
+
+  position: absolute;
+  /* left: 50px; */
+  /* right: 50px; */
+  /* bottom: 100; */
+
+    /* margin: 0 0 0 auto; */
+  /* position: relative; */
+  /* left: 300px; */
+}
+
+.profile {
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(177, 217, 235);
+  width: 1000px;
+  margin: 0 auto;
+  /* margin-right: 0;
+  margin-bottom: 0; */
+  text-align: center;
+}
+
+.my {
+  width: 250px;
+  /* background-color: #cc4f39; */
+  height: 220px;
+  margin: 20px;
+  /* line-height: 220px; */
+}
+
+.indexCamel {
+  width: 250px;
+  /* background-color: #cc4f39; */
+  height: 220px;
+  margin: 20px;
+  /* padding: 10 20 40; */
+  /* margin: 30px; */
+  /* margin: 10px; */
+}
+
+#picReverse {
+  transform: scale(-1, 1);
+}
+
+.indexMain {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(177, 217, 235);
+  width: 1000px;
+  /* padding: 0 0 0; */
+  margin: 0 auto;
+  /* text-align: center; */
+  
+}
+
+.indexSubHobby {
+  width: 450px;
+  height: 200px;
+  background-color: white;
+  /* padding: 30px 50px 80px; */
+  margin: 30px;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+.titleColorPaint {
+  background-color: rgb(75, 131, 234);
+  text-align: center;
+  color: white;
+  /* align-content: center; */
+  /* margin: 30px; */
+  /* margin-top: 100px; */
+}
+
+
+.indexIcon {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.hover-sample:hover{
+	font-weight: bold;
+  background-color: #ff6347;
+}
+
+.indexIconClickArea {
+  background-color: #ff6347;
+  width: 200px;
+  /* margin: 0 auto; */
+  padding: 10px 50px 20px;
+  margin: 0 auto;
+  /* align-items: center; */
+  text-align: center;
+}
+
+/* .indexIconFont {
+  text-align: ;
+} */
+
+/* ======================================================================= */
+/* SecretPage.html */
+
+.boastTitleColorPaint {
+  background-color: aquamarine;
+  /* width: 200px; */
+  /* margin: 30px; */
+  /* margin-top: 100px; */
+
+}
+
+span {
+  font-size: 10px;
+}
+
+.wrap {
+  font-size: 30px;
+  font-stretch: extra-expanded;
+  animation: fadein 8s forwards;
+}
+
+@keyframes fadein {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+/* ======================================================================= */
+/* ワニワニパニック */
+
+.CroroBody {
+  background-color: lightcyan;
+  font-family: "游ゴシック";
+}
+
+#startBtn {
+  width: 60px;
+  height: 60px;
+  background-color: chartreuse;
+  /* margin: 10px auto; */
+  border-radius: 50%;
+/* padding-left: 20px; */
+  /* letter-spacing: 100%; */
+  /* line-height: 50px; */
+  text-align: center;
+  line-height: 60px;
+  color: rgba(29, 95, 44, 0.708);
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  user-select: none;
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+#countBtn {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(136, 255, 0);
+  /* margin: 10px auto; */
+  border-radius: 50%;
+/* padding-left: 20px; */
+  /* letter-spacing: 100%; */
+  /* line-height: 50px; */
+  text-align: center;
+  line-height: 50px;
+  color: rgba(29, 95, 44, 0.708);
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+
+  box-shadow: 0 10px 0 rgb(31, 211, 91);
+  margin-top: 4px auto;
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#countBtn:active {
+  box-shadow: 0 5px 0 rgb(31, 211, 91);
+  margin-top: 6px;
+}
+
+
+#countDownBtn {
+  width: 50px;
+  height: 50px;
+  background-color: #ff6347;
+  /* margin: 10px auto; */
+  border-radius: 50%;
+/* padding-left: 20px; */
+  /* letter-spacing: 100%; */
+  /* line-height: 50px; */
+  text-align: center;
+  line-height: 50px;
+  color: rgba(29, 95, 44, 0.708);
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+
+  box-shadow: 0 10px 0 #cc4f39;
+  margin-top: 4px auto;
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#countDownBtn:active {
+  box-shadow: 0 5px 0 #cc4f39;
+  margin-top: 6px;
+}
+
+#square2 {
+  /* border: 2px solid #000; */
+  width: 200px;
+  background-color: black;
+}
+
+#numDisply {  
+  background-color:black;
+  color: white;
+  width: 40px;
+  line-height: 40px;
+  height: 40px;
+  text-align: center;
+  /* margin-bottom: 30px; */
+}
+
+/* ======================================================================= */
+
+/* 丸図形 */
+.croroPic {
+  width: 50px;
+  height: 50px;
+}
+
+.topMenu {
+  /* float: left; */
+  display: flex;
+}
+
+.picRun {
+  background-color: darkorange;
+  height: 300px;
+}
+
+#box1 {display: none;}
+#box2 {display: none;}
+#box3 {display: none;}
+#box4 {display: none;}
+#box5 {display: none;}
+#box6 {display: none;}
+#box7 {display: none;}
+#box8 {display: none;}
+#box9 {display: none;}
+#box10 {display: none;}
+#box11 {display: none;}
+#box12 {display: none;}
+#box13 {display: none;}
+#box14 {display: none;}
+#box15 {display: none;}
+#box16 {display: none;}
+#box17 {display: none;}
+
+.move1 {animation: box_move1 15s forwards;}
+.move2 {animation: box_move2 15s forwards;}
+.move3 {animation: box_move3 14s forwards;}
+.move4 {animation: box_move4 24s forwards;}
+.move5 {animation: box_move5 22s forwards;}
+.move6 {animation: box_move6 15s forwards;}
+.move7 {animation: box_move7 18s forwards;}
+.move8 {animation: box_move8 16s forwards;}
+.move9 {animation: box_move9 20s forwards;}
+.move10 {animation: box_move10 16s forwards;}
+.move11 {animation: box_move11 23s forwards;}
+.move12 {animation: box_move12 25s forwards;}
+.move13 {animation: box_move13 23s forwards;}
+.move14 {animation: box_move14 24s forwards;}
+.move15 {animation: box_move15 20s forwards;}
+.move16 {animation: box_move16 19s forwards;}
+.move17 {animation: box_move17 15s forwards;}
+
+@keyframes box_move1 {
+  0%{transform: translate(2000px, 100px);}
+  100%{transform: translate(-1500px, 200px);}
+}
+
+@keyframes box_move2 {
+  0%{transform: translate(1300px, 0px);}
+  100%{transform: translate(-1900px, -100px);}
+}
+
+@keyframes box_move3 {
+  0%{transform: translate(20000px, 100px);}
+  100%{transform: translate(-1200px, -100px);}
+}
+
+@keyframes box_move4 {
+  0%{transform: translate(23000px, -100px);}
+  100%{transform: translate(-1900px, -100px);}
+}
+
+@keyframes box_move5 {
+  0%{transform: translate(15000px, -200px);}
+  100%{transform: translate(-1900px, -100px);}
+}
+
+@keyframes box_move6 {
+  0%{transform: translate(8000px, -100px);}
+  100%{transform: translate(-1900px, -100px);}
+}
+
+@keyframes box_move7 {
+  0%{transform: translate(5000px, -400px);}
+  100%{transform: translate(-1900px, -200px);}
+}
+
+@keyframes box_move8 {
+  0%{transform: translate(2000px, -100px);}
+  100%{transform: translate(-1900px, -300px);}
+}
+
+@keyframes box_move9 {
+  0%{transform: translate(8000px, -200px);}
+  100%{transform: translate(-1900px, -400px);}
+}
+
+@keyframes box_move10 {
+  0%{transform: translate(9000px, -400px);}
+  100%{transform: translate(-1900px, -300px);}
+}
+
+@keyframes box_move11 {
+  0%{transform: translate(2000px, -500px);}
+  100%{transform: translate(-1900px, -400px);}
+}
+
+@keyframes box_move12 {
+  0%{transform: translate(10000px, -600px);}
+  100%{transform: translate(-1900px, -500px);}
+}
+
+@keyframes box_move13 {
+  0%{transform: translate(2000px, -500px);}
+  100%{transform: translate(-1900px, -600px);}
+}
+
+@keyframes box_move14 {
+  0%{transform: translate(5000px, -400px);}
+  100%{transform: translate(-1900px, -600px);}
+}
+
+@keyframes box_move15 {
+  0%{transform: translate(16000px, -600px);}
+  100%{transform: translate(-1900px, -600px);}
+}
+
+@keyframes box_move16 {
+  0%{transform: translate(11000px, -500px);}
+  100%{transform: translate(-1900px, -500px);}
+}
+
+@keyframes box_move17 {
+  0%{transform: translate(10000px, -900px);}
+  100%{transform: translate(-1900px, -700px);}
+}
