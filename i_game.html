@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秘密_IroIro</title>
+    <title>game</title>
     <link rel="stylesheet" type="text/css" href="c_style.css"/>
     <audio id="btn_audio">
       <source src="sound_count.mp3" type="audio/mp3">
@@ -11,22 +11,43 @@
     <audio id="btn_down_audio">
       <source src="sound_down_count.mp3" type="audio/mp3">
     </audio>
-
+    <audio id="btn_reset_audio">
+      <source src="s_reset_sound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_answer_audio">
+      <source src="s_correct_answer.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_incorrect_answer_audio">
+      <source src="s_incorrect_answer.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_open_audio">
+      <source src="s_open_door.mp3" type="audio/mp3">
+    </audio>
   </head>
-  <body class="CroroBody">
-    <input class="homeMove" type="button" onclick="location.href='index.html'" value="HOMEに戻る">
-    <p>ボタンを押せばSTART</p>
-    <div class="topMenu">
-      <p>ルール説明</p>
-      <h2>HowManyWaniWani</h2>
-      <div id="startBtn">ワニ放出開始</div>
 
+  <body class="CroroBody">
+    <div class="topMenu td">
+      <input class="homeMove" type="button" onclick="location.href='index.html'" value="HOMEに戻る">
+      <p id="ruleExplanation">ワニだけを数えて下さい。放出開始ボタンでSTART</p>
+    </div>
+    <!-- <p>ボタンを押せばSTART</p> -->
+    <div class="topMenu">
+      <!-- <p>ルール説明</p> -->
+      <h2>howMany?</h2>
+      <img src="pic_reset.png" id="resetBtn">
+      <div id="startBtn">ワニ放出開始</div>
       <div id="countBtn">＋</div>
       <div id="countDownBtn">－</div>
       <div id="square2"></div>
       <div id="numDisply">0</div>
-    </div>
+      <input type="button" id="countEnd" value="終わったら&#13;&#10;ここ押してね&#13;&#10;採点されるよ">
+      <div id="resultDisplay">
+        <!-- <p id="idResultDisplay"> -->
+          <!-- </p> -->
 
+        <div id="idResultDisplay"></div>
+      </div>
+    </div>
 
     <div class="picRun">
       <img src="pic_croco.png" class="croroPic" id="box1">
@@ -46,10 +67,9 @@
       <img src="pic_croco.png" class="croroPic" id="box15">
       <img src="pic_croco.png" class="croroPic" id="box16">
       <img src="pic_croco.png" class="croroPic" id="box17">
+      <img src="pic_camel.png" class="croroPic" id="box18">
+      <img src="pic_camel.png" class="croroPic" id="box19">
     </div>
-
-
-
   </body>
   <script type="text/javascript" src="sp_game_croco.js"></script>
 </html>
