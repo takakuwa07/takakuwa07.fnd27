@@ -1,14 +1,15 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-const crocodileNum = document.getElementById("crocodileNum");
+// const crocodileNum = document.getElementById("crocodileNum");
 
-// p11タグ カウントアップ-ダウンでワニが表示されている領域
-const paragraph = document.createElement("p11");
+
+
 // const paragraphCroroNum = document.createElement("p12");
 
 //=======================================================================
 
+// 汎用性のあるスリープ関数
 function sleep(waitMsec) {
   var startMsec = new Date();
 
@@ -17,6 +18,24 @@ function sleep(waitMsec) {
 }
 
 //=======================================================================
+// ワニ放出のやり直し機能 クリック
+const clickReset = document.getElementById("resetBtn");
+clickReset.addEventListener("click", function () {
+
+  // 音を出す
+  document.getElementById('btn_reset_audio').currentTime = 0; //連続クリックに対応
+  document.getElementById("btn_reset_audio").play(); //クリックしたら音を再生
+
+  // 1秒止めないとなぜか音鳴らないので入れた
+  sleep(500);
+
+  window.location.reload();
+  alert('リセットします');
+}
+);
+
+//=======================================================================
+
 const button = document.getElementById('startBtn');
 
 const moveCircle1 = document.getElementById("box1");
@@ -36,16 +55,36 @@ const moveCircle14 = document.getElementById("box14");
 const moveCircle15 = document.getElementById("box15");
 const moveCircle16 = document.getElementById("box16");
 const moveCircle17 = document.getElementById("box17");
+const moveCircle18 = document.getElementById("box18");
+const moveCircle19 = document.getElementById("box19");
 
-const moveCircleClass = document.querySelector("croroPic");
+// const moveCircleClass = document.querySelector("croroPic");
 
-moveCircle1.addEventListener("click", () => {
-  moveCircle1.classList.add("move");
-});
+const countEnd = document.getElementById("countEnd"); // 採点ボタン
 
+const resultDisplay = document.getElementById("resultDisplay"); // 採点結果を表示する領域
+const idResultDisplay = document.getElementById("idResultDisplay"); // 採点結果を表示するテキスト部
 
+//=======================================================================
+
+// 放出開始ボタン クリック
 button.addEventListener("click", () => {
-  button.textContent = "放出中";
+
+  // 決まった条件の時は処理を折らせる
+  if (returnNo() === "処理終了") {return;}
+
+  // 再度ボタン押された時は処理を終了
+  if (button.textContent === "放出中!!数えて") {
+    return;
+  }
+
+  // 音を出す
+  document.getElementById('btn_open_audio').currentTime = 0; //連続クリックに対応
+  document.getElementById("btn_open_audio").play(); //クリックしたら音を再生
+
+  // button.classList.add("moveStart");
+  
+  button.textContent = "放出中!!数えて";
 
   moveCircle1.style.display = "block";
   moveCircle2.style.display = "block";
@@ -64,6 +103,8 @@ button.addEventListener("click", () => {
   moveCircle15.style.display = "block";
   moveCircle16.style.display = "block";
   moveCircle17.style.display = "block";
+  moveCircle18.style.display = "block";
+  moveCircle19.style.display = "block";
 
   moveCircle1.classList.add("move1");
   moveCircle2.classList.add("move2");
@@ -82,28 +123,54 @@ button.addEventListener("click", () => {
   moveCircle15.classList.add("move15");
   moveCircle16.classList.add("move16");
   moveCircle17.classList.add("move17");
+  moveCircle18.classList.add("move18");
+  moveCircle19.classList.add("move19");
+
+  countEnd.style.display = "block";
 });
 
 //=======================================================================
-const numCount = document.getElementById("numDisply");
+const numCount = document.getElementById("numDisply"); // ワニの数字が書かれているテキスト部
+
+// p11タグ カウントアップ-ダウンでワニ（絵文字）を表示するテキスト部
+const paragraph = document.createElement("p11");
+document.getElementById("square2").appendChild(paragraph);
+
+// // p15タグ 採点ボタン押した時に表示するテキスト部
+// const checkPara = document.createElement("p15");
+
+
 //=======================================================================
 
 // 何匹か数える。ボタンを押すとワニを増やす。+1になる
 const buttonCount = document.getElementById('countBtn');
 buttonCount.addEventListener("click", () => {
-  // 音を出す
-  document.getElementById('btn_audio').currentTime = 0; //連続クリックに対応
-  document.getElementById("btn_audio").play(); //クリックしたら音を再生
 
-  // ワニを+1する
-  let result = paragraph.textContent;
-  result = result + "🐊"
-  paragraph.textContent = result;
-  document.getElementById("square2").appendChild(paragraph);
+  // 決まった条件の時は処理を折らせる
+  if (returnNo() === "処理終了") {return;}
 
+  // 放出開始ボタン押される前に押された時はメッセージ表示
+  if (button.textContent === "ワニ放出開始") {
+    alert("ワニ放出開始ボタンを押した後に使ってね")
+    return;
+  }
 
-  // +1する時の効果音
-  numCount.innerText = Number(numCount.innerText) + 1;
+  // 27匹を超えては押せない
+  if (Number(numCount.innerText) < 27) {
+
+    // 音を出す
+    document.getElementById('btn_audio').currentTime = 0; //連続クリックに対応
+    document.getElementById("btn_audio").play(); //クリックしたら音を再生
+
+    // ワニを+1する
+    let result = paragraph.textContent;
+    result = result + "🐊"
+    paragraph.textContent = result;
+    document.getElementById("square2").appendChild(paragraph);
+
+    // +1する時の効果音
+    numCount.innerText = Number(numCount.innerText) + 1;
+  }
 });
 
 //=======================================================================
@@ -112,12 +179,20 @@ buttonCount.addEventListener("click", () => {
 const buttonDownCount = document.getElementById('countDownBtn');
 buttonDownCount.addEventListener("click", () => {
 
+  // 決まった条件の時は処理を折らせる
+  if (returnNo() === "処理終了") {return;}
+
+  // 放出開始ボタン押される前に押された時はメッセージ表示
+  if (button.textContent === "ワニ放出開始") {
+    alert("ワニ放出開始ボタンを押した後に使ってね")
+    return;
+  }
+
   // ワニを-1する
   const num = 1;
   let result = paragraph.textContent;
   result = result.substring(2);
   paragraph.textContent = result;
-  document.getElementById("square2").appendChild(paragraph);
 
   if (Number(numCount.innerText) > 0) {
     //-1する時の効果音
@@ -130,3 +205,67 @@ buttonDownCount.addEventListener("click", () => {
 });
 
 //=======================================================================
+// 採点ボタン クリック
+countEnd.addEventListener("click", () => {
+
+  resultDisplay.style.display = "block"; //採点後のメッセージを表示
+  countEnd.style.display = "none"; // 採点ボタンを非表示
+
+  let num = Number(numCount.innerText);
+  let messe;
+
+  // 正解は 17
+  if (num === 17) {
+    soundCorrectAnswer(); // 正解の音を出す
+    messe = "【大大大正解】動体視力Lv…神様レベル\n"
+    messe = messe + "おめでとう！\n"
+    messe = messe + "\n"
+    messe = messe + "左上のHOMEボタンで戻れるよ"
+
+  } else if (num >= 15 && num <= 19) {
+    soundIncorrectCorrectAnswer(); // 不正解の音を出す
+    messe = "【不正解すごくおしい】動体視力Lv…アスリートレベル\n"
+    messe = messe + "※左のRESETボタンでもう一度チャレンジ\n"
+    messe = messe + "ヒント…プログラミング基礎27\n"
+    messe = messe + "メンバーの数を思い出してね"
+
+  } else if (num >= 12 && num < 22) {
+    soundIncorrectCorrectAnswer(); // 不正解の音を出す
+    messe = "【不正解】動体視力Lv…人間レベル\n"
+    messe = messe + "※左のRESETボタンでもう一度チャレンジ\n"
+    messe = messe + "ヒント…プログラミング基礎27\n"
+    messe = messe + "メンバーの数を思い出してね"
+
+  } else {
+    soundIncorrectCorrectAnswer(); // 不正解の音を出す
+    messe = "【不正解】動体視力Lv…計測不可\n"
+    messe = messe + "※左のRESETボタンでもう一度チャレンジ\n\n"
+    messe = messe + "よかったらもう少し遊んでいってね\n"
+  }
+
+  document.getElementById("idResultDisplay").innerText = messe;
+});
+//=======================================================================
+
+function soundCorrectAnswer() {
+    // 正解の音を出す
+    document.getElementById('btn_answer_audio').currentTime = 0; //連続クリックに対応
+    document.getElementById("btn_answer_audio").play(); //クリックしたら音を再生
+}
+
+function soundIncorrectCorrectAnswer() {
+  // 不正解の音を出す
+  document.getElementById('btn_incorrect_answer_audio').currentTime = 0; //連続クリックに対応
+  document.getElementById("btn_incorrect_answer_audio").play(); //クリックしたら音を再生
+}
+
+//=======================================================================
+
+// 採点後にはカウントボタンなど押せないようにする処理
+function returnNo() {
+  const messe = document.getElementById("idResultDisplay").innerText
+  if (messe.startsWith("【") === true) {
+    alert('やり直しは左のRESETボタンを押してね');
+    return "処理終了"
+  }
+}
