@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animal_battle</title>
+    <link rel="stylesheet" type="text/css" href="c_style.css"/>
+    <audio id="btn_audio">
+      <source src="sound_count.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_down_audio">
+      <source src="sound_down_count.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_reset_audio">
+      <source src="reset_sound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_answer_audio">
+      <source src="s_correct_answer.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_incorrect_answer_audio">
+      <source src="s_incorrect_answer.mp3" type="audio/mp3">
+    </audio>
+    <audio id="btn_open_audio">
+      <source src="s_open_door.mp3" type="audio/mp3">
+    </audio>
+  </head>
+
+  <body class="CroroBody">
+    <div class="topMenu td">
+      <input class="homeMove" type="button" onclick="location.href='index.html'" value="HOMEに戻る">
+      <p id="ruleExplanation">ランダムで選択されたanimal 6匹で戦うゲームです</p>
+    </div>
+    <!-- <p>ボタンを押せばSTART</p> -->
+    <div class="topMenu">
+      <!-- <p>ルール説明</p> -->
+      <h2>randomBattle</h2>
+      <img src="reset.png" id="resetBtn">
+    </div>
+
+
+  </body>
+  <script type="text/javascript" src="sp_game_croco.js"></script>
+</html>
