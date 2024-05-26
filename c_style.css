@@ -1,8 +1,4 @@
 /* ======================================================================= */
-/* ★★★ 共通 ★★★ */
-.picSize {
-  width: 100px;
-}
 
 .homeMove {
   /* margin-left: 30px; */
@@ -19,10 +15,7 @@
   font-family: "游ゴシック";
 }
 
-.indexHeader {
-
-  
-  
+.indexHeader {  
   display: flex;
   justify-content: center;
   position: relative;
@@ -35,12 +28,12 @@
   /* margin-bottom: 30px; */
 }
 
-/* .indexTitle {
+.indexTitle {
   text-align: center;
-  padding: left 100px;
+  /* padding: left 100px;
   margin: 0 auto;
-  text-align: center;
-} */
+  text-align: center; */
+}
 
 .indexUpdate{
   /* text-align: right; */
@@ -72,20 +65,21 @@
 }
 
 .my {
-  width: 250px;
+  width: 333px;
   /* background-color: #cc4f39; */
-  height: 220px;
-  margin: 20px;
+  height: 250px;
+  /* line-height: 125px; */
+  margin: 20px 0 0;
   /* line-height: 220px; */
 }
 
 .indexCamel {
-  width: 250px;
+  width: 333px;
   /* background-color: #cc4f39; */
-  height: 220px;
+  height: 150px;
   margin: 20px;
   /* padding: 10 20 40; */
-  /* margin: 30px; */
+  margin: 0 auto;
   /* margin: 10px; */
 }
 
@@ -106,16 +100,16 @@
 
 .indexSubHobby {
   width: 450px;
-  height: 200px;
+  height: 180px;
   background-color: white;
   /* padding: 30px 50px 80px; */
-  margin: 30px;
+  margin: 20px;
 }
 
 
-h1 {
+/* h1 {
   text-align: center;
-}
+} */
 
 .titleColorPaint {
   background-color: rgb(75, 131, 234);
@@ -126,6 +120,43 @@ h1 {
   /* margin-top: 100px; */
 }
 
+#picRecommendation {
+  width: 50px;
+  /* height: 30px; */
+  /* margin-top: 5px; */
+  /* margin-bottom: 20px; */
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  /* line-height: 100px; */
+  vertical-align: bottom
+}
+
+カンマで区切ると、どちらか一方で含まれれば適用
+ul, ol {
+  margin: 15px 0 10px;
+}
+
+
+#youtubeText {
+  text-align: center;
+  margin: 0 0 0;
+}
+
+/* li {
+  text-decoration: none;
+} */
+li span{
+  font-size: 20px;
+
+}
+
+.eraseUnderline {
+  text-decoration: none;
+}
+
+.eraseUnderline:hover {
+  font-weight: bold;
+}
 
 .indexIcon {
   display: flex;
@@ -134,19 +165,24 @@ h1 {
   margin: 0 auto;
 }
 
-.hover-sample:hover{
-	font-weight: bold;
-  background-color: #ff6347;
-}
 
 .indexIconClickArea {
-  background-color: #ff6347;
+  /* background-color: #ff6347; */
   width: 200px;
   /* margin: 0 auto; */
   padding: 10px 50px 20px;
   margin: 0 auto;
   /* align-items: center; */
   text-align: center;
+}
+
+.picSize {
+  width: 100px;
+}
+
+.picBoast {
+  padding-top: 10px;
+  width: 130px;
 }
 
 /* .indexIconFont {
@@ -180,33 +216,83 @@ span {
 }
 
 /* ======================================================================= */
-/* ワニワニパニック */
+/* ワニ数えるゲーム */
+
+.td {
+  font-family: "Meiryo UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+  "Yu Gothic UI", "MS PGothic", sans-serif !Important;
+}
+  
+
 
 .CroroBody {
   background-color: lightcyan;
   font-family: "游ゴシック";
 }
 
-#startBtn {
+.topMenu {
+  /* float: left; */
+  /* height: 30px; */
+  display: flex;
+}
+
+#ruleExplanation {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 5px 0 10px;
+  /* text-align: center; */
+}
+
+#resetBtn {
+  padding-left: 30px;
+  padding-right: 10px;
   width: 60px;
   height: 60px;
-  background-color: chartreuse;
+  cursor: pointer;
+  user-select: none;
+}
+
+#startBtn {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(174, 180, 168);
   /* margin: 10px auto; */
   border-radius: 50%;
 /* padding-left: 20px; */
   /* letter-spacing: 100%; */
   /* line-height: 50px; */
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   color: rgba(29, 95, 44, 0.708);
   font-weight: bold;
-  font-size: 10px;
+  font-size: 15px;
   cursor: pointer;
   user-select: none;
+
+  box-shadow: 0 10px 0 rgb(122, 148, 131);
+  margin-top: 4px auto;
 
   margin-left: 10px;
   margin-right: 10px;
 }
+
+#startBtn:active {
+  box-shadow: 0 5px 0 rgb(122, 148, 131);
+  margin-top: 6px;
+}
+
+/* #startBtn:hover {
+  box-shadow: 0 5px 0 rgb(122, 148, 131);
+  margin-top: 6px;
+} */
+
+
+/* .moveStart {animation: startBtn 1s forwards;}
+
+@keyframes startBtn {
+  0%{transform: translate(0px, 0px);}
+  100%{transform: translate(0px, 5px);}
+} */
 
 
 #countBtn {
@@ -272,6 +358,7 @@ span {
   /* border: 2px solid #000; */
   width: 200px;
   background-color: black;
+  user-select: none;
 }
 
 #numDisply {  
@@ -281,8 +368,31 @@ span {
   line-height: 40px;
   height: 40px;
   text-align: center;
+  user-select: none;
+  margin: 0 8px 0;
   /* margin-bottom: 30px; */
 }
+
+#countEnd {
+  /* padding-left: 30px; */
+  margin: 0 30px 10px;
+  width: 100px;
+  cursor: pointer;
+  display: none;
+}
+
+#resultDisplay {
+  /* margin: 0 0 0px; */
+  /* padding-left: 30px; */
+  width: 290px;
+  /* height: 80px; */
+  background-color: black;
+  color: white;
+  font-size: 11px;
+  display: none;
+}
+
+
 
 /* ======================================================================= */
 
@@ -292,10 +402,6 @@ span {
   height: 50px;
 }
 
-.topMenu {
-  /* float: left; */
-  display: flex;
-}
 
 .picRun {
   background-color: darkorange;
@@ -319,6 +425,8 @@ span {
 #box15 {display: none;}
 #box16 {display: none;}
 #box17 {display: none;}
+#box18 {display: none;}
+#box19 {display: none;}
 
 .move1 {animation: box_move1 15s forwards;}
 .move2 {animation: box_move2 15s forwards;}
@@ -337,6 +445,8 @@ span {
 .move15 {animation: box_move15 20s forwards;}
 .move16 {animation: box_move16 19s forwards;}
 .move17 {animation: box_move17 15s forwards;}
+.move18 {animation: box_move18 15s forwards;}
+.move19 {animation: box_move19 15s forwards;}
 
 @keyframes box_move1 {
   0%{transform: translate(2000px, 100px);}
@@ -421,4 +531,14 @@ span {
 @keyframes box_move17 {
   0%{transform: translate(10000px, -900px);}
   100%{transform: translate(-1900px, -700px);}
+}
+
+@keyframes box_move18 {
+  0%{transform: translate(17000px, -900px);}
+  100%{transform: translate(-1900px, -700px);}
+}
+
+@keyframes box_move19 {
+  0%{transform: translate(9000px, -700px);}
+  100%{transform: translate(-1900px, -900px);}
 }
