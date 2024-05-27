@@ -5,39 +5,389 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>animal_battle</title>
     <link rel="stylesheet" type="text/css" href="c_style.css"/>
-    <audio id="btn_audio">
-      <source src="sound_count.mp3" type="audio/mp3">
+    <audio id="btn_dice_audio">
+      <source src="s_dice.mp3" type="audio/mp3">
     </audio>
-    <audio id="btn_down_audio">
-      <source src="sound_down_count.mp3" type="audio/mp3">
+    <audio id="btn_decided_audio">
+      <source src="s_decided.wav" type="audio/mp3">
     </audio>
     <audio id="btn_reset_audio">
-      <source src="reset_sound.mp3" type="audio/mp3">
+      <source src="s_reset_sound.mp3" type="audio/mp3">
     </audio>
-    <audio id="btn_answer_audio">
-      <source src="s_correct_answer.mp3" type="audio/mp3">
+    <audio id="btn_battle_start_audio">
+      <source src="s_battle_start.mp3" type="audio/mp3">
     </audio>
-    <audio id="btn_incorrect_answer_audio">
-      <source src="s_incorrect_answer.mp3" type="audio/mp3">
-    </audio>
-    <audio id="btn_open_audio">
-      <source src="s_open_door.mp3" type="audio/mp3">
+    <audio id="btn_win_audio">
+      <source src="s_win.mp3" type="audio/mp3">
     </audio>
   </head>
 
   <body class="CroroBody">
     <div class="topMenu td">
-      <input class="homeMove" type="button" onclick="location.href='index.html'" value="HOMEに戻る">
-      <p id="ruleExplanation">ランダムで選択されたanimal 6匹で戦うゲームです</p>
+      <input class="homeMove" type="button" onclick="location.href='index.html'" value="HOMEに戻る"><br>
     </div>
-    <!-- <p>ボタンを押せばSTART</p> -->
     <div class="topMenu">
-      <!-- <p>ルール説明</p> -->
-      <h2>randomBattle</h2>
-      <img src="reset.png" id="resetBtn">
+      <h2>animalBattle</h2>
+      <img src="pic_reset.png" id="resetBtn">
     </div>
+
+    <p class="td">＜手順1＞ -------------------------------------------------------------------------------------------<br>
+    ボタンを押すとanimal図鑑からランダムに6匹選ばれます<br>
+    全12匹、かぶりはないようにしています</p>
+    <input id="battleStartBtn" type="button" value="selectStart" class="battleStart td">
+
+    
+
+    <div class="startDisply td">
+      <p class="handled1P2Ptitle">1P側</p>
+      <p class="handled1P2Ptitle">2P側</p>
+    </div>
+
+    <div class="startDisply td">
+      <div class="startDisplyHandledeTitle td">
+        <p class="handled1p2pSelect">選択ID</p>
+        <p class="handled1p2pNumber">図鑑No</p>
+        <p class="handled1p2pName">名前</p>
+        <p class="handled1p2pType1">タイプ1</p>
+        <p class="handled1p2pType2">タイプ2</p>
+      </div>
+      <div class="startDisplyHandledeTitle td">
+        <p class="handled1p2pSelect">選択ID</p>
+        <p class="handled1p2pNumber">図鑑No</p>
+        <p class="handled1p2pName">名前</p>
+        <p class="handled1p2pType1">タイプ1</p>
+        <p class="handled1p2pType2">タイプ2</p>
+      </div>
+    </div>
+
+    <div class="startDisply td">
+      <div class="startDisplyHandledeTitle td">
+
+        <div>
+          <p id="hand1Pselect1" class="handheldSelect">1</p>
+          <p id="hand1Pselect2" class="handheldSelect">2</p>
+          <p id="hand1Pselect3" class="handheldSelect">3</p>
+          <p id="hand1Pselect4" class="handheldSelect">4</p>
+          <p id="hand1Pselect5" class="handheldSelect">5</p>
+          <p id="hand1Pselect6" class="handheldSelect">6</p>
+        </div>
+
+        <div>
+          <p id="hand1PNumber1" class="handheldNumber">?</p>
+          <p id="hand1PNumber2" class="handheldNumber">?</p>
+          <p id="hand1PNumber3" class="handheldNumber">?</p>
+          <p id="hand1PNumber4" class="handheldNumber">?</p>
+          <p id="hand1PNumber5" class="handheldNumber">?</p>
+          <p id="hand1PNumber6" class="handheldNumber">?</p>
+        </div>
+
+        <div class="handledSubTitle">
+          <p id="hand1P1" class="handheName">???</p>
+          <p id="hand1P2" class="handheName">???</p>
+          <p id="hand1P3" class="handheName">???</p>
+          <p id="hand1P4" class="handheName">???</p>
+          <p id="hand1P5" class="handheName">???</p>
+          <p id="hand1P6" class="handheName">???</p>
+        </div>
+    
+        <div>
+          <p id="hand1Ptype11" class="handheType">???</p>
+          <p id="hand1Ptype12" class="handheType">???</p>
+          <p id="hand1Ptype13" class="handheType">???</p>
+          <p id="hand1Ptype14" class="handheType">???</p>
+          <p id="hand1Ptype15" class="handheType">???</p>
+          <p id="hand1Ptype16" class="handheType">???</p>
+        </div>
+
+        <div>
+          <p id="hand1Ptype21" class="handheType">???</p>
+          <p id="hand1Ptype22" class="handheType">???</p>
+          <p id="hand1Ptype23" class="handheType">???</p>
+          <p id="hand1Ptype24" class="handheType">???</p>
+          <p id="hand1Ptype25" class="handheType">???</p>
+          <p id="hand1Ptype26" class="handheType">???</p>
+        </div>
+
+      </div>
+
+      <div class="startDisplyHandledeTitle td">
+        <div>
+          <p id="hand1Pselect1" class="handheldSelect">1</p>
+          <p id="hand2Pselect2" class="handheldSelect">2</p>
+          <p id="hand3Pselect3" class="handheldSelect">3</p>
+          <p id="hand4Pselect4" class="handheldSelect">4</p>
+          <p id="hand5Pselect5" class="handheldSelect">5</p>
+          <p id="hand6Pselect6" class="handheldSelect">6</p>
+        </div>
+
+        <div>
+          <p id="hand2PNumber1" class="handheldNumber">?</p>
+          <p id="hand2PNumber2" class="handheldNumber">?</p>
+          <p id="hand2PNumber3" class="handheldNumber">?</p>
+          <p id="hand2PNumber4" class="handheldNumber">?</p>
+          <p id="hand2PNumber5" class="handheldNumber">?</p>
+          <p id="hand2PNumber6" class="handheldNumber">?</p>
+        </div>
+
+        <div>
+          <p id="hand2P1" class="handheName">???</p>
+          <p id="hand2P2" class="handheName">???</p>
+          <p id="hand2P3" class="handheName">???</p>
+          <p id="hand2P4" class="handheName">???</p>
+          <p id="hand2P5" class="handheName">???</p>
+          <p id="hand2P6" class="handheName">???</p>
+        </div>
+
+        <div>
+          <p id="hand2Ptype11" class="handheType">???</p>
+          <p id="hand2Ptype12" class="handheType">???</p>
+          <p id="hand2Ptype13" class="handheType">???</p>
+          <p id="hand2Ptype14" class="handheType">???</p>
+          <p id="hand2Ptype15" class="handheType">???</p>
+          <p id="hand2Ptype16" class="handheType">???</p>
+        </div>
+
+        <div>
+          <p id="hand2Ptype21" class="handheType">???</p>
+          <p id="hand2Ptype22" class="handheType">???</p>
+          <p id="hand2Ptype23" class="handheType">???</p>
+          <p id="hand2Ptype24" class="handheType">???</p>
+          <p id="hand2Ptype25" class="handheType">???</p>
+          <p id="hand2Ptype26" class="handheType">???</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    
+    <p class="td">＜手順2＞ -------------------------------------------------------------------------------------------<br>
+    バトルに出すanimalを選択<br>
+    入力例）<br>
+    選択ID 4 と 2 と 5を出す時は<br>
+    425と入力して下さい。順番も大事。同じanimalは不可。選択後は「君に決めた」ボタン押して下さい</p>
+
+    <div class="startDisply td">
+        <input type='password' placeholder='1P側 3匹を選択' id="select1Panimal" class="selectAnimal">
+        <input type='password' placeholder='2P側 3匹を選択' id="select2Panimal" class="selectAnimal"> 
+    </div>
+
+    <div class="startDisply td">
+      <div class="inputDecisionArea">
+        <input class="inputDecision" type="button" id="decision1P" value="君に決めた"><br>
+      </div>
+      <div class="inputDecisionArea">
+        <input class="inputDecision" type="button" id="decision2P" value="君に決めた"><br>
+      </div>
+    </div>
+
+    <br>
+    <p class="td">＜手順3＞ -------------------------------------------------------------------------------------------<br>
+      ボタンを押してバトルスタート<br>
+    <input type="button" id="battleStart1" class ="battleStart" value="battleStart"><br>
+
+    <div class="startDisply td">
+      <p class="handled1P2Ptitle">1P側</p>
+      <p class="handled1P2Ptitle">2P側</p>
+    </div>
+    <div class="howManyRounds">1回戦</div>
+
+    <div class="startDisply td">
+      <div class="startDisplyHandledeTitle td">
+        <p class="handled1p2pSelect">選択ID</p>
+        <p class="handled1p2pNumber">図鑑No</p>
+        <p class="handled1p2pName">名前</p>
+        <p class="handled1p2pType1">タイプ1</p>
+        <p class="handled1p2pType2">タイプ2</p>
+      </div>
+      <div class="startDisplyHandledeTitle td">
+        <p class="handled1p2pSelect">選択ID</p>
+        <p class="handled1p2pNumber">図鑑No</p>
+        <p class="handled1p2pName">名前</p>
+        <p class="handled1p2pType1">タイプ1</p>
+        <p class="handled1p2pType2">タイプ2</p>
+      </div>
+    </div>
+
+    <div class="startDisply td">
+      <div class="startDisplyHandledeTitle td">
+        <div>
+          <p id="hand1PselectChoice1" class="handheldSelect">?</p>
+        </div>
+        <div>
+          <p id="hand1PNumberChoice1" class="handheldNumber">?</p>
+        </div>
+        <div class="handledSubTitle">
+          <p id="hand1PChoice1" class="handheName">???</p>
+        </div>
+        <div>
+          <p id="hand1Ptype1Choice1" class="handheType">???</p>
+        </div>
+        <div>
+          <p id="hand1Ptype2Choice1" class="handheType">???</p>
+        </div>
+      </div>
+
+      <div class="startDisplyHandledeTitle td">
+        <div>
+          <p id="hand2PselectChoice1" class="handheldSelect">?</p>
+        </div>
+        <div>
+          <p id="hand2PNumberChoice1" class="handheldNumber">?</p>
+        </div>
+        <div>
+          <p id="hand2PChoice1" class="handheName">???</p>
+        </div>
+        <div>
+          <p id="hand2Ptype1Choice1" class="handheType">???</p>
+        </div>
+        <div>
+          <p id="hand2Ptype2Choice1" class="handheType">???</p>
+        </div>
+      </div>
+    </div>
+    <div class="startDisply td">
+      <div class="startDisplyHandledeTitle td">
+        <p class="techniqueNameTitle">技名</p>
+        <p class="techniqueTypeTitle">技Type</p>
+      </div>
+      <div class="startDisplyHandledeTitle td">
+
+        <p class="techniqueNameTitle">技名</p>
+        <p class="techniqueTypeTitle">技Type</p>
+      </div>
+    </div>
+
+
+    <div class="startDisply td">
+      <div class="startDisplyHandledeTitle td">
+
+        <div class="td ">
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique1P11" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType1P11" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique1P12" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType1P12" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique1P13" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType1P13" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique1P14" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType1P14" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique1P15" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType1P15" class="techniquTypeChoiceArea">???</p>
+          </div>
+        </div> 
+
+        <div class="td">
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique2P11" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType2P11" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique2P12" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType2P12" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique2P13" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType2P13" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique2P14" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType2P14" class="techniquTypeChoiceArea">???</p>
+          </div>
+          <div class="startDisplyHandledeTitle td">
+            <p id="Technique2P15" class="techniquChoiceArea">???</p>
+            <p id="TechniqueType2P15" class="techniquTypeChoiceArea">???</p>
+          </div>
+        </div> 
+      </div> 
+    </div> 
+
+    <div class="startDisply td">
+      <div class="weaknessTittle td">
+        <p class="handled1p2pNumber">弱点</p>
+      </div>
+      <div class="weaknessTittle td">
+        <p class="handled1p2pNumber">弱点</p>
+      </div>
+    </div>
+    
+
+    <div class="startDisply td">
+      <div class="weaknessArea td">
+        <p id="weakness1P1" class="weaknessDisplay">???</p>
+      </div>
+      <div class="weaknessArea td">
+        <p id="weakness2P1" class="weaknessDisplay">???</p>
+      </div>
+    </div>
+
+
+    <div class="startDisply td">
+      <div class="weaknessTittle td">
+        <p class="handled1p2pNumber">抵抗</p>
+      </div>
+      <div class="weaknessTittle td">
+        <p class="handled1p2pNumber">抵抗</p>
+      </div>
+    </div>
+    
+
+    <div class="startDisply td">
+      <div class="weaknessArea td">
+        <p id="resistance1P1" class="weaknessDisplay">???</p>
+      </div>
+      <div class="weaknessArea td">
+        <p id="resistance2P1" class="weaknessDisplay">???</p>
+      </div>
+    </div>
+
+    <div class="startDisply td">
+      <div class="weaknessTittle td">
+        <p class="handled1p2pNumber">戦闘力(CP)</p>
+      </div>
+      <div class="weaknessTittle td">
+        <p class="handled1p2pNumber">戦闘力(CP)</p>
+      </div>
+    </div>
+    
+
+    <div class="startDisply td">
+      <div class="weaknessArea td">
+        <p id="combatPower1P1" class="weaknessDisplay">???</p>
+      </div>
+      <div class="weaknessArea td">
+        <p id="combatPower2P1" class="weaknessDisplay">???</p>
+      </div>
+    </div>
+
+
+    <div class="startDisply td">
+      <input type="button" id="fight1Result" value="結果発表"><br>
+      <div class="startDisplyHandledeTitle td">
+        <p class="resultWinTittle">勝者･･･</p>
+        <p id="result1Win" class="resultWinTittle winArea"></p>
+      </div>
+    </div>
+    ・<br>
+    ・<br>
+    ・<br>
+    ・<br>
+    ・<br>
+    ・<br>
+    ・<br>
+    ・<br>
+    <p class="td">
+    時間切れにつき・・・作成断念<br>
+    本当は技のタイプ判定とかでバトルを面白くしたかった</p>
 
 
   </body>
-  <script type="text/javascript" src="sp_game_croco.js"></script>
+  <script type="text/javascript" src="allPokemon.js"></script>
+  <script type="text/javascript" src="sp_animal_battle.js"></script>
 </html>
