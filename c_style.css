@@ -180,6 +180,11 @@ li span{
   width: 100px;
 }
 
+.picSizeGattleGame {
+  width: 130px;
+}
+
+
 .picBoast {
   padding-top: 10px;
   width: 130px;
@@ -200,8 +205,8 @@ li span{
 
 }
 
-span {
-  font-size: 10px;
+span30 {
+  font-size: 11px;
 }
 
 .wrap {
@@ -542,3 +547,201 @@ span {
   0%{transform: translate(9000px, -700px);}
   100%{transform: translate(-1900px, -900px);}
 }
+
+
+/* ======================================================================= */
+/* ポケモンバトル（i_animal_battle.html）で使用される主なCSS */
+
+
+.startDisply {
+  display: flex;
+  width: 1000;
+}
+
+
+.handled1p2pSelect {
+  width: 70px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.handled1P2Ptitle {
+  width: 420px;
+  background-color: cornflowerblue;
+  margin-right: 20px;
+  margin-bottom: 0;
+  color: white;
+}
+
+.handled1p2pNumber {
+  width: 100px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.handled1p2pName {
+  width: 120px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.handled1p2pType1 {
+  width: 85px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.handled1p2pType2 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.startDisplyHandledeTitle{
+  display: flex;
+  width: 440px;
+}
+
+.handheldSelect {
+  width: 40px;
+  background-color: cornflowerblue;
+  color: white;
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.handheldNumber {
+  width: 40px;
+  background-color: white;
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+}
+
+.handheName {
+  width: 110px;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+ }
+
+ .handheType {
+  width: 65px;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+ }
+
+/* ======================================================================= */
+
+ .selectAnimal {
+  width: 400px;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-right: 30px;
+  margin-bottom: 0;
+  color:black;
+ }
+
+
+ .inputDecision {
+  font-size: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: px;
+ }
+
+.inputDecisionArea {
+  width: 420px;
+  text-align: left;
+  margin-right: 18px;
+  margin-top: 10px;
+}
+
+.battleStart {
+  font-size: 20px;
+  text-align: left;
+  margin-right: 18px;
+  margin-top: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.howManyRounds {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* ----------------------------------- */
+
+.techniqueNameTitle{
+  width: 170px;
+  margin-bottom: 0;
+}
+
+.techniqueTypeTitle {
+  width: 100px;
+  margin-bottom: 0;
+}
+
+
+.techniquChoiceArea {
+  width: 150px;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+ }
+
+ .techniquTypeChoiceArea {
+  width: 70px;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+ }
+
+
+ .weaknessTittle {
+  width: 440px;
+  margin-bottom: 0;
+ }
+
+ .weaknessArea {
+  width: 410px;
+  margin-top: 0px;
+  margin-right: 30px;
+  margin-bottom: 0px;
+ }
+
+ .weaknessDisplay {
+  width: 400px;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+ }
+
+ #fight1Result {
+  font-size: 20px;
+  text-align: left;
+  margin-right: 18px;
+  margin-top: 10px;
+  width: 300px;
+  text-align: center;
+ }
+
+ .resultWinTittle {
+  width: 100px;
+  font-size: 20px;
+  font-weight: bold;
+ }
+
+ .winArea {
+  color: red;
+ }
