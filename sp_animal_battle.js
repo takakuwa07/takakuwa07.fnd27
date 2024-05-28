@@ -127,6 +127,14 @@ const TechniqueType1P13 = document.getElementById('TechniqueType1P13');
 const TechniqueType1P14 = document.getElementById('TechniqueType1P14');
 const TechniqueType1P15 = document.getElementById('TechniqueType1P15');
 
+// 1P側 技名
+const TechniqueDamage1P11 = document.getElementById('TechniqueDamage1P11');
+const TechniqueDamage1P12 = document.getElementById('TechniqueDamage1P12');
+const TechniqueDamage1P13 = document.getElementById('TechniqueDamage1P13');
+const TechniqueDamage1P14 = document.getElementById('TechniqueDamage1P14');
+const TechniqueDamage1P15 = document.getElementById('TechniqueDamage1P15');
+
+
 // 2P側 1回戦選出ポケモン情報
 const hand2PselectChoice1 = document.getElementById('hand2PselectChoice1');
 const hand2PNumberChoice1 = document.getElementById('hand2PNumberChoice1');
@@ -147,6 +155,13 @@ const TechniqueType2P12 = document.getElementById('TechniqueType2P12');
 const TechniqueType2P13 = document.getElementById('TechniqueType2P13');
 const TechniqueType2P14 = document.getElementById('TechniqueType2P14');
 const TechniqueType2P15 = document.getElementById('TechniqueType2P15');
+
+// 2P側 技名
+const TechniqueDamage2P11 = document.getElementById('TechniqueDamage2P11');
+const TechniqueDamage2P12 = document.getElementById('TechniqueDamage2P12');
+const TechniqueDamage2P13 = document.getElementById('TechniqueDamage2P13');
+const TechniqueDamage2P14 = document.getElementById('TechniqueDamage2P14');
+const TechniqueDamage2P15 = document.getElementById('TechniqueDamage2P15');
 
 // 弱点
 const weakness1P1 = document.getElementById('weakness1P1'); //1P側
@@ -462,18 +477,19 @@ battleStart1.addEventListener("click", function () {
     return "処理終了"; 
   }
 
-
   let num = Number(String(select1Panimal.value)[0]);
 
   let bookNumber;
   let bookName;
   let bookType1;
   let bookType2;
-
   let listAttack = [];
   let listAttackType = [];
+  let listAttackDamage = [];
   let listWeakness = []; // 弱点
   let listResistant= []; // 抵抗
+
+
   let bookCombatPower;
 
   // ランダムセレクトされた6匹の中から指定ポケモンの情報を変数に入れる関数
@@ -484,10 +500,9 @@ battleStart1.addEventListener("click", function () {
     bookNumber = hand1PNumber1.innerText;
     bookName = hand1P1.innerText;
     bookType1 = hand1Ptype11.innerText;
-    bookType1 = hand1Ptype21.innerText;
+    bookType2 = hand1Ptype21.innerText;
 
   } else if (num === 2) {
-    console.log("aaaaaaa");
     bookNumber = hand1PNumber2.innerText;
     bookName = hand1P2.innerText;
     bookType1 = hand1Ptype12.innerText;
@@ -523,28 +538,48 @@ battleStart1.addEventListener("click", function () {
     if (element["Number"] ==  Number(bookNumber)) {
 
       console.log(element);
+
+      // 技名
       listAttack.push(element["Fast Attack(s)"][0]["Name"]);
       listAttack.push(element["Fast Attack(s)"][1]["Name"]);
       listAttack.push(element["Special Attack(s)"][0]["Name"]);
-      if (element["Special Attack(s)"][1]["Name"] === undefined) {
-        listAttack.push("-")
-        listAttack.push("-")
+
+      // ポケモン図鑑No.10のポケモンはスペシャルアタックが二つしか
+      // 設定されていないので、エラー会費の為にif判定をしている
+      if (element["Special Attack(s)"][1] === undefined) {
+        listAttack.push("-");
+        listAttack.push("-");
       } else {
         listAttack.push(element["Special Attack(s)"][1]["Name"]);
         listAttack.push(element["Special Attack(s)"][2]["Name"]);
       }
 
+      // 技Type
       listAttackType.push(element["Fast Attack(s)"][0]["Type"]);
       listAttackType.push(element["Fast Attack(s)"][1]["Type"]);
       listAttackType.push(element["Special Attack(s)"][0]["Type"]);
 
-      if (element["Special Attack(s)"][1]["Type"] === undefined) {
-        listAttack.push("-")
-        listAttack.push("-")
+      if (element["Special Attack(s)"][1] === undefined) {
+        listAttackType.push("-");
+        listAttackType.push("-");
       } else {
         listAttackType.push(element["Special Attack(s)"][1]["Type"]);
         listAttackType.push(element["Special Attack(s)"][2]["Type"]);
-      }      
+      }
+      
+      // 攻撃力
+      listAttackDamage.push(element["Fast Attack(s)"][0]["Damage"]);
+      listAttackDamage.push(element["Fast Attack(s)"][1]["Damage"]);
+      listAttackDamage.push(element["Special Attack(s)"][0]["Damage"]);
+
+      if (element["Special Attack(s)"][1] === undefined) {
+        listAttackDamage.push("-")
+        listAttackDamage.push("-")
+      } else {
+        listAttackDamage.push(element["Special Attack(s)"][1]["Damage"]);
+        listAttackDamage.push(element["Special Attack(s)"][2]["Damage"]);
+      }
+      
       listWeakness = element["Resistant"]
       listResistant = element["Weaknesses"]
 
@@ -572,6 +607,13 @@ battleStart1.addEventListener("click", function () {
   TechniqueType1P14.innerText = listAttackType[3];
   TechniqueType1P15.innerText = listAttackType[4];
 
+  TechniqueDamage1P11.innerText = listAttackDamage[0];
+  TechniqueDamage1P12.innerText = listAttackDamage[1];
+  TechniqueDamage1P13.innerText = listAttackDamage[2];
+  TechniqueDamage1P14.innerText = listAttackDamage[3];
+  TechniqueDamage1P15.innerText = listAttackDamage[4];
+
+
   weakness1P1.innerText = listWeakness;
   resistance1P1.innerText = listResistant;
 
@@ -581,8 +623,6 @@ battleStart1.addEventListener("click", function () {
 
   num = Number(String(select2Panimal.value)[0]);
   
-  console.log("2P", num)
-
   // 初期化
 
   bookNumber = 0;
@@ -592,6 +632,7 @@ battleStart1.addEventListener("click", function () {
 
   listAttack = [];
   listAttackType = [];
+  listAttackDamage = [];
   listWeakness = []; // 弱点
   listResistant= []; // 抵抗
   bookCombatPower = "";
@@ -600,10 +641,9 @@ battleStart1.addEventListener("click", function () {
     bookNumber = hand2PNumber1.innerText;
     bookName = hand2P1.innerText;
     bookType1 = hand2Ptype11.innerText;
-    bookType1 = hand2Ptype21.innerText;
+    bookType2 = hand2Ptype21.innerText;
 
   } else if (num === 2) {
-    console.log("aaaaaaa");
     bookNumber = hand2PNumber2.innerText;
     bookName = hand2P2.innerText;
     bookType1 = hand2Ptype12.innerText;
@@ -639,11 +679,15 @@ battleStart1.addEventListener("click", function () {
     if (element["Number"] ==  Number(bookNumber)) {
 
       console.log(element);
+
+      // 技名
       listAttack.push(element["Fast Attack(s)"][0]["Name"]);
       listAttack.push(element["Fast Attack(s)"][1]["Name"]);
       listAttack.push(element["Special Attack(s)"][0]["Name"]);
 
-      if (element["Special Attack(s)"][1]["Name"] === undefined) {
+      // ポケモン図鑑No.10のポケモンはスペシャルアタックが二つしか
+      // 設定されていないので、エラー会費の為にif判定をしている
+      if (element["Special Attack(s)"][1] === undefined) {
         listAttack.push("-")
         listAttack.push("-")
       } else {
@@ -651,18 +695,31 @@ battleStart1.addEventListener("click", function () {
         listAttack.push(element["Special Attack(s)"][2]["Name"]);
       }
 
+      // 技Type
       listAttackType.push(element["Fast Attack(s)"][0]["Type"]);
       listAttackType.push(element["Fast Attack(s)"][1]["Type"]);
       listAttackType.push(element["Special Attack(s)"][0]["Type"]);
 
-      if (element["Special Attack(s)"][1]["Type"] === undefined) {
-        listAttack.push("-")
-        listAttack.push("-")
+      if (element["Special Attack(s)"][1] === undefined) {
+        listAttackType.push("-")
+        listAttackType.push("-")
       } else {
         listAttackType.push(element["Special Attack(s)"][1]["Type"]);
         listAttackType.push(element["Special Attack(s)"][2]["Type"]);
       }
 
+      // 攻撃力
+      listAttackDamage.push(element["Fast Attack(s)"][0]["Damage"]);
+      listAttackDamage.push(element["Fast Attack(s)"][1]["Damage"]);
+      listAttackDamage.push(element["Special Attack(s)"][0]["Damage"]);
+
+      if (element["Special Attack(s)"][1] === undefined) {
+        listAttackDamage.push("-")
+        listAttackDamage.push("-")
+      } else {
+        listAttackDamage.push(element["Special Attack(s)"][1]["Damage"]);
+        listAttackDamage.push(element["Special Attack(s)"][2]["Damage"]);
+      }
       
       listWeakness = element["Resistant"]
       listResistant = element["Weaknesses"]
@@ -690,6 +747,13 @@ battleStart1.addEventListener("click", function () {
   TechniqueType2P13.innerText = listAttackType[2];
   TechniqueType2P14.innerText = listAttackType[3];
   TechniqueType2P15.innerText = listAttackType[4];
+
+  TechniqueDamage2P11.innerText = listAttackDamage[0];
+  TechniqueDamage2P12.innerText = listAttackDamage[1];
+  TechniqueDamage2P13.innerText = listAttackDamage[2];
+  TechniqueDamage2P14.innerText = listAttackDamage[3];
+  TechniqueDamage2P15.innerText = listAttackDamage[4];
+
 
   weakness2P1.innerText = listWeakness;
   resistance2P1.innerText = listResistant;
@@ -728,7 +792,7 @@ fight1Result.addEventListener("click", function () {
 
 
 
-
+// 以下の関数作ったが、変数受け渡しがうまくできず断念
 
 //  ==============================================================
 
