@@ -685,7 +685,12 @@ span30 {
 }
 
 .techniqueTypeTitle {
-  width: 100px;
+  width: 90px;
+  margin-bottom: 0;
+}
+
+.techniqueDamageTitle {
+  width: 130px;
   margin-bottom: 0;
 }
 
@@ -700,6 +705,14 @@ span30 {
 
  .techniquTypeChoiceArea {
   width: 70px;
+  background-color: white;
+  margin-top: 8px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+ }
+
+ .techniquDamageArea {
+  width: 40px;
   background-color: white;
   margin-top: 8px;
   margin-right: 20px;
@@ -744,4 +757,9 @@ span30 {
 
  .winArea {
   color: red;
+ }
+
+ .combatPowerDisplay {
+  width: 500px;
+  margin-bottom: 0;
  }
